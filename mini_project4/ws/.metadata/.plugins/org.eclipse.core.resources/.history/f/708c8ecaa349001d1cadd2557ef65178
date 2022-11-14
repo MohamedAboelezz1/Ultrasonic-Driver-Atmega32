@@ -1,0 +1,45 @@
+/*
+ ================================================================================================
+ Name        : Read_Distance.c
+ Author      : Mohamed Aboelezz
+ Description : Read the temperature from the sensor with this value control the FAN speed
+ 	 	 	   ,and display in LCD the FAN statues and temperature
+ Date        : 4/10/2022
+ ================================================================================================
+ */
+
+#include "lcd.h"
+#include <avr\io.h>
+
+int main(void)
+{
+	/* Enable Global Interrupt I-Bit */
+	SREG |= (1<<7);
+
+	/* distance which is red*/
+	uint16 distance=100;
+
+	LCD_init(); 			/* initialize LCD driver */
+
+	/* Display this string "Distance=    cm" only once on LCD at the First row col 0 */
+	LCD_displayString("Distance=    cm");
+
+	while(1)
+	{
+		//distance = LM35_getTemperature();
+
+		/* Display the distance value every time at same position */
+		LCD_moveCursor(0,10);
+		if(distance >= 100)
+		{
+			LCD_intgerToString(distance);
+		}
+		else
+		{
+			LCD_intgerToString(distance);
+			/* In case the digital value is two or one digits print space in the next digit place */
+			LCD_displayCharacter(' ');
+		}
+	}
+}
+

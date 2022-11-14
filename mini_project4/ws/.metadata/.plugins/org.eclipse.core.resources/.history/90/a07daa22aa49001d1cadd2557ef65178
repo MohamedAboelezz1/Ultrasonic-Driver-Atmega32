@@ -1,0 +1,12 @@
+ /******************************************************************************
+ *
+ * Module: Ultransonic
+ *
+ * File Name: ultrasonic.h
+ *
+ * Description: Header file for the HC-SR04 driver
+ *
+ * Author: Mohamed Aboelezz
+ *
+ *******************************************************************************/
+
